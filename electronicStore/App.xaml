@@ -1,0 +1,47 @@
+﻿<Application x:Class="electronicStore.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:electronicStore"
+             xmlns:viewModel="clr-namespace:electronicStore.WPF.MVVM.ViewModel"
+             xmlns:view="clr-namespace:electronicStore.WPF.MVVM.View">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/MenuButtonTheme.xaml" />
+                <ResourceDictionary Source="Theme/TextBoxTheme.xaml" />
+                <ResourceDictionary Source="Theme/CartTheme.xaml" />
+                
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                <view:HomeView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:ProductInListViewModel}">
+                <view:ProductInListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:PhoneViewModel}">
+                <view:PhoneView/>
+            </DataTemplate>
+
+
+            <DataTemplate DataType="{x:Type viewModel:CartViewModel}">
+                <view:CartView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:CartItemViewModel}">
+                <view:CartItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:CardDetailsViewModel}">
+                <view:CardDetailsView/>
+            </DataTemplate>
+
+        </ResourceDictionary>
+     
+    </Application.Resources>
+</Application>
