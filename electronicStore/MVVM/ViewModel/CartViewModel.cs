@@ -1,8 +1,8 @@
 ﻿using electronicStore.WPF.Core;
 using Microsoft.Extensions.DependencyInjection;
 using Store.Application.Abstractions;
-using Store.Application.Models.Carts;
-using Store.Application.Models.Phones;
+using Store.Core.Models.Carts;
+using Store.Core.Models.Phones;
 
 namespace electronicStore.WPF.MVVM.ViewModel
 {
@@ -63,14 +63,14 @@ namespace electronicStore.WPF.MVVM.ViewModel
             }
         }
 
-        internal void AddPhoneById(uint id)
+        internal void AddPhoneById(Guid id)
         {
             var phone = _phonesService.Get(id);
             Items.Add(new CartItemViewModel(new CartItem
             {
                 Quantity = 1,
                 Price = phone.Price,
-                PhoneId = (int)id,
+                PhoneId = id,
                 Model = phone.Model,
                 Image = phone.Image,
             }, _serviceProvider));

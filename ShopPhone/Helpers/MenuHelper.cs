@@ -1,8 +1,6 @@
-﻿using ShopePhone.ConsoleApp.Helper;
-using Store.Application.Enums;
-using Store.Application.Models;
-using Store.Application.Models.Phones;
-using Store.Application.Services;
+﻿using Store.Application.Services;
+using Store.Core.Enums;
+using Store.Core.Models.Phones;
 
 namespace ShopPhone.ConsoleApp.Helpers
 {
@@ -28,11 +26,11 @@ namespace ShopPhone.ConsoleApp.Helpers
 
             var category = (MainMenu)CommonHelper.ReadPositiveNumber();
 
-            var phonesService = new PhonesService();
+            var phonesService = new PhonesService(null);
 
             var phonesCollection = PhoneHelper.GetPhoneCollection(category);
 
-            if (category == Store.Application.Enums.MainMenu.Pricefilter)
+            if (category == Store.Core.Enums.MainMenu.Pricefilter)
             {
                 Console.WriteLine("Tyre you price: ");
 
@@ -41,7 +39,7 @@ namespace ShopPhone.ConsoleApp.Helpers
                     .Where(p => p.Price <= price)
                     .ToList();
             }
-            else if (category == Store.Application.Enums.MainMenu.PrivateMenu)
+            else if (category == Store.Core.Enums.MainMenu.PrivateMenu)
             {
                 HiddenMenu();
             }
@@ -65,13 +63,13 @@ namespace ShopPhone.ConsoleApp.Helpers
                 return;
             }
 
-            var service = new PhonesService();
+            var service = new PhonesService(null);
             var category = CommonHelper.ReadEnumValue<SecretMenu>("HiddenMenu");
             if (category == SecretMenu.Delete)
             {
                 Console.WriteLine("Provide id");
 
-                var id = CommonHelper.ReadPositiveNumber();
+                var id = CommonHelper.ReadGuid();
                 service.Delete(id);
             }
             else if (category == SecretMenu.Add)

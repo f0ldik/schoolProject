@@ -1,6 +1,6 @@
-﻿namespace Store.Application.Enums
+﻿namespace Store.Core.Enums
 {
-    public enum PhoneColor
+    public enum PhoneColor : byte
     {
         Black = 1,
         White = 2,

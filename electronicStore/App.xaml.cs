@@ -3,6 +3,7 @@ using electronicStore.WPF.MVVM.ViewModel;
 using Microsoft.Extensions.DependencyInjection;
 using Store.Application.Abstractions;
 using Store.Application.Services;
+using Store.Data;
 using System.Windows;
 
 namespace electronicStore
@@ -14,12 +15,13 @@ namespace electronicStore
         public App()
         {
             var _serviceCollection = new ServiceCollection();
+            _serviceCollection.AddDbContext<ShopContext>();
             _serviceCollection.AddSingleton<IPhonesService,PhonesService>();
 
-            _serviceCollection.AddSingleton<HomeViewModel>();
             _serviceCollection.AddSingleton<CardDetailsViewModel>();
-            _serviceCollection.AddSingleton<CartViewModel>();
             _serviceCollection.AddTransient<CartItemViewModel>();
+            _serviceCollection.AddSingleton<CartViewModel>();
+            _serviceCollection.AddSingleton<HomeViewModel>();
             _serviceCollection.AddSingleton<MainViewModel>();
             _serviceCollection.AddSingleton<PhoneViewModel>();
 

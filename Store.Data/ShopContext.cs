@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Store.Core.Models.Phones;
 
 namespace Store.Data;
 
 public partial class ShopContext : DbContext
 {
-    public ShopContext()
-    {
-    }
-
     public ShopContext(DbContextOptions<ShopContext> options)
         : base(options)
     {
@@ -43,6 +40,14 @@ public partial class ShopContext : DbContext
             entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Model).HasMaxLength(50);
             entity.Property(e => e.Procesor).HasMaxLength(50);
+            entity.Ignore(e => e.CameraMP);
+            entity.Ignore(e => e.DisplayFullSize);
+            entity.Ignore(e => e.DisplayGC);
+            entity.Ignore(e => e.DisplaySize);
+            entity.Ignore(e => e.Height);
+            entity.Ignore(e => e.Image);
+            entity.Ignore(e => e.MemorySize);
+            entity.Ignore(e => e.Width);
         });
 
         OnModelCreatingPartial(modelBuilder);

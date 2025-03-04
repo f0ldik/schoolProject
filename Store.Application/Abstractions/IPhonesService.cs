@@ -1,10 +1,10 @@
-﻿using Store.Application.Models.Phones;
+﻿using Store.Core.Models.Phones;
 
 namespace Store.Application.Abstractions
 {
     public interface IPhonesService
     {
          List<Phone> GetAll();
-         Phone Get(uint id);
+         Phone Get(Guid id);
     }
 }

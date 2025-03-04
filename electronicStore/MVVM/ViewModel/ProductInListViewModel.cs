@@ -5,9 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using electronicStore.WPF.Core;
 using Microsoft.Extensions.DependencyInjection;
-using Store.Application.Models;
-using Store.Application.Models.Phones;
 using Store.Application.Services;
+using Store.Core.Models.Phones;
 
 namespace electronicStore.WPF.MVVM.ViewModel
 {

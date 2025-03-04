@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Store.Application.Enums
+namespace Store.Core.Enums
 {
-    public enum SecretMenu
+    public enum PhoneCategory
     {
-        Add = 1,
-        Delete = 2
+        Iphone = 1,
+        Poco = 2,
+        Samsung = 3,
     }
 }

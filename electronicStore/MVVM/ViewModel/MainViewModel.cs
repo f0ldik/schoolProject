@@ -1,7 +1,7 @@
 ﻿using electronicStore.WPF.Core;
 using electronicStore.WPF.Windows;
 using Microsoft.Extensions.DependencyInjection;
-using Store.Application.Enums;
+using Store.Core.Enums;
 
 namespace electronicStore.WPF.MVVM.ViewModel
 {

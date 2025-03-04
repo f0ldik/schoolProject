@@ -1,14 +1,11 @@
-﻿using Store.Application.Enums;
-using Store.Application.Models;
-using Store.Application.Models.Phones;
-using System.Diagnostics;
-using static System.Net.Mime.MediaTypeNames;
+﻿using Store.Core.Enums;
+using Store.Core.Models.Phones;
 
 namespace Store.Data.Data
 {
     public static class SeedPhoneCollection
     {
-        public static List<Store.Application.Models.Phones.Phone> GetAll()
+        public static List<Phone> GetAll()
         {
             var iPhone14Plus = new Iphone
             {
@@ -26,7 +23,7 @@ namespace Store.Data.Data
                 Price = 36999,
                 SpeedCharging = true,
                 HasChargingBlock = false,
-                Id = 1,
+                Id = GenerateGuid(1),
             };
 
             var Iphone15promax = new Iphone
@@ -45,7 +42,7 @@ namespace Store.Data.Data
                 Price = 64999,
                 SpeedCharging = true,
                 HasChargingBlock = false,
-                Id = 2,
+                Id = GenerateGuid(2),
             };
 
             var GOOGLEPixelFold = new Poco
@@ -63,7 +60,7 @@ namespace Store.Data.Data
                 Price = 55999,
                 Color = PhoneColor.Blue,
                 SimCardsCount = 3,
-                Id = 3,
+                Id = GenerateGuid(3),
             };
 
             var GOOGLEPixel8Pro = new Poco
@@ -81,7 +78,7 @@ namespace Store.Data.Data
                 Price = 30999,
                 Color = PhoneColor.Red,
                 SimCardsCount = 2,
-                Id = 4,
+                Id = GenerateGuid(4),
             };
 
             var SamsungGalaxyFold5 = new Samsung
@@ -100,10 +97,10 @@ namespace Store.Data.Data
                 Color = PhoneColor.Black,
                 ShockProof = false,
                 Waterproof = true,
-                Id = 5,
+                Id = GenerateGuid(5),
             };
 
-            var SamsungGalaxyS24Ultra  = new Samsung
+            var SamsungGalaxyS24Ultra = new Samsung
             {
                 Model = "Samsung Galaxy S24 Ultra",
                 MemorySize = 1024,
@@ -119,9 +116,14 @@ namespace Store.Data.Data
                 Color = PhoneColor.Yellow,
                 ShockProof = true,
                 Waterproof = true,
-                Id = 6,
+                Id = GenerateGuid(6),
             };
-            return new List<Store.Application.Models.Phones.Phone> { GOOGLEPixel8Pro, SamsungGalaxyS24Ultra , SamsungGalaxyFold5, GOOGLEPixel8Pro, GOOGLEPixelFold, iPhone14Plus, Iphone15promax };
+            return new List<Phone> { GOOGLEPixel8Pro, SamsungGalaxyS24Ultra, SamsungGalaxyFold5, GOOGLEPixel8Pro, GOOGLEPixelFold, iPhone14Plus, Iphone15promax };
+        }
+
+        private static Guid GenerateGuid(int id)
+        {
+            return Guid.NewGuid();
         }
     }
 }

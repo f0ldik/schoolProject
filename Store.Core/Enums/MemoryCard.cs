@@ -1,4 +1,4 @@
-﻿namespace Store.Application.Enums
+﻿namespace Store.Core.Enums
 {
     public enum MemoryCard
     {

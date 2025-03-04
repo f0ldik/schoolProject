@@ -1,12 +1,6 @@
 ﻿using electronicStore.WPF.Core;
 using Microsoft.Extensions.DependencyInjection;
 using Store.Application.Abstractions;
-using Store.Application.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace electronicStore.WPF.MVVM.ViewModel
 {
@@ -14,7 +8,7 @@ namespace electronicStore.WPF.MVVM.ViewModel
     {
         public HomeViewModel(IServiceProvider serviceProvider)
         {
-            var phonesService = serviceProvider.GetService<IPhonesService>();
+            var phonesService = serviceProvider.GetRequiredService<IPhonesService>();
             Products = phonesService.GetAll()
                 .Select(f => new ProductInListViewModel(f, serviceProvider))
                 .ToList();

@@ -1,15 +1,14 @@
-﻿using ShopPhone.ConsoleApp.Helpers;
-using Store.Application.Enums;
-using Store.Application.Models.Phones;
-using Store.Application.Services;
+﻿using Store.Application.Services;
+using Store.Core.Enums;
+using Store.Core.Models.Phones;
 
-namespace ShopePhone.ConsoleApp.Helper
+namespace ShopPhone.ConsoleApp.Helpers
 {
     public class PhoneHelper
     {
-        public static void RequestToBuy(uint phoneId)
+        public static void RequestToBuy(Guid phoneId)
         {
-            var service = new PhonesService();
+            var service = new PhonesService(null);
             var phone = service.Get(phoneId);
             if (phone == null)
             {
@@ -33,12 +32,12 @@ namespace ShopePhone.ConsoleApp.Helper
             }
         }
 
-        public static void PrintPhonesDetails(uint phoneId)
+        public static void PrintPhonesDetails(Guid phoneId)
         {
             Console.WriteLine($"You selected phone number #{phoneId}");
             Console.WriteLine();
 
-            var service = new PhonesService();
+            var service = new PhonesService(null);
 
             var phone = service.Get(phoneId);
             if (phone == null)
@@ -92,7 +91,7 @@ namespace ShopePhone.ConsoleApp.Helper
 
         public static List<Phone> GetPhoneCollection(MainMenu category)
         {
-            var service = new PhonesService();
+            var service = new PhonesService(null);
 
             var phoneCollection = service.GetAll();
             if (category == MainMenu.Iphone)

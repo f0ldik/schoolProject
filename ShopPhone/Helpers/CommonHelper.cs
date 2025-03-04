@@ -24,6 +24,26 @@ namespace ShopPhone.ConsoleApp.Helpers
             }
         }
 
+        public static Guid ReadGuid(params string[] labels)
+        {
+            while (true)
+            {
+                foreach (var item in labels)
+                {
+                    Console.WriteLine(item);
+                }
+                Guid.TryParse(Console.ReadLine(), out Guid number);
+                if (number != Guid.Empty)
+                {
+                    return number;
+                }
+                else
+                {
+                    Console.WriteLine($"Typed value is not valid value.Please try agin");
+                }
+            }
+        }
+
         public static bool ReadBool(string labels)
         {
             Console.WriteLine($"{labels}\r\n 1 - Yes \r\n 2 - No");

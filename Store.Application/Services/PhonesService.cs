@@ -1,56 +1,80 @@
-﻿using Store.Application.Abstractions;
-using Store.Application.Models.Phones;
+﻿using Microsoft.EntityFrameworkCore;
+using Store.Application.Abstractions;
+using Store.Core.Models.Phones;
+using Store.Data;
 using System.Text.Json;
 
 namespace Store.Application.Services
 {
-    public class PhonesService : IPhonesService
+    public class PhonesService21 : IPhonesService
     {
-        private const string FilePath = "phones.json";
+        public Phone Get(Guid id)
+        {
+            return null;
+        }
 
         public List<Phone> GetAll()
         {
-            if (!File.Exists(FilePath))
-            {
-                File.Create(FilePath);
-            }
-            var fileContent = File.ReadAllText(FilePath);
-            if (fileContent.Length > 2)
-            {
-                return JsonSerializer.Deserialize<List<Phone>>(fileContent);
-            }
-            return new List<Phone>();
+            return [];
+        }
+    }
+
+    public class PhonesService : IPhonesService
+    {
+        private ShopContext _shopContext;
+
+        public PhonesService(ShopContext shopContext)
+        {
+            _shopContext = shopContext;
+        }
+        public List<Phone> GetAll()
+        {
+            return _shopContext.Phones.ToList();
         }
 
-        public Phone Get(uint id)
+        public Phone Get(Guid id)
         {
-            return GetAll().FirstOrDefault(x => x.Id == id);
+            return _shopContext.Phones.AsNoTracking().FirstOrDefault(f => f.Id == id);
         }
 
         public void Add(Phone phone)
         {
-            var phoneCollection = GetAll();
-            if (phoneCollection.Any())
-            {
-                phone.Id = phoneCollection.Max(x => x.Id) + 1;
-            }
-            else
-            {
-                phone.Id = 1;
-            }
-            phoneCollection.Add(phone);
-
-            var fileContent = JsonSerializer.Serialize(phoneCollection);
-            File.WriteAllText(FilePath, fileContent);
+            _shopContext.Phones.Add(phone);
+            _shopContext.SaveChanges();
         }
 
-        public void Delete(uint id)
+        public void Update(Phone phone)
         {
-            var phonesCollection = GetAll();
-            phonesCollection = phonesCollection.Where(p => p.Id != id).ToList();
+            _shopContext.Entry(phone).State = EntityState.Modified;
+            _shopContext.SaveChanges();
+        }
 
-            var fileContent = JsonSerializer.Serialize(phonesCollection);
-            File.WriteAllText(FilePath, fileContent);
+        //public void Update2(Phone phone)
+        //{
+        //    var originalPhone = Get(phone.Id);
+        //    originalPhone.Width = phone.Width;
+        //    originalPhone.Height = phone.Height;
+        //    originalPhone.Model = phone.Model;
+        //    originalPhone.Price = phone.Price; 
+        //    _shopContext.SaveChanges();
+        //}
+
+        //public void UpgradePrice(Guid id, int newPrice)
+        //{
+        //    var phone = Get(id);
+        //    if (phone is not null) 
+        //    {
+        //        phone.Price = newPrice;
+        //        _shopContext.SaveChanges();
+        //    }
+        //}
+
+        public void Delete(Guid id)
+        {
+            var phone = Get(id);
+
+                _shopContext.Phones.Remove(phone);
+                _shopContext.SaveChanges();
         }
     }
 }

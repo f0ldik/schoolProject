@@ -1,7 +1,7 @@
 ﻿using electronicStore.WPF.Core;
 using Microsoft.Extensions.DependencyInjection;
 using Store.Application.Abstractions;
-using Store.Application.Models.Phones;
+using Store.Core.Models.Phones;
 
 namespace electronicStore.WPF.MVVM.ViewModel
 {
@@ -27,7 +27,7 @@ namespace electronicStore.WPF.MVVM.ViewModel
             AddToCartCommand = new RelayCommand(f =>           
             {
                 var cartViewModel = serviceProvider.GetRequiredService<CartViewModel>();
-                cartViewModel.AddPhoneById(uint.Parse(f.ToString()));
+                cartViewModel.AddPhoneById(Guid.Parse(f.ToString()));
 
                 var mainViewModel = serviceProvider.GetRequiredService<MainViewModel>();
                 mainViewModel.CurrentView = cartViewModel;
@@ -36,7 +36,7 @@ namespace electronicStore.WPF.MVVM.ViewModel
 
         }
 
-        internal void SetPhoneId(uint id)
+        internal void SetPhoneId(Guid id)
         {
             Data = _phonesService.Get(id);
         }

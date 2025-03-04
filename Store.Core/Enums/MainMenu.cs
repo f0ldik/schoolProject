@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Store.Application.Enums
+namespace Store.Core.Enums
 {
     public enum MainMenu
     {

@@ -1,4 +1,4 @@
-﻿namespace Store.Application.Models.Phones
+﻿namespace Store.Core.Models.Phones
 {
     public class Poco : Phone
     {

@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel;
 
-namespace Store.Application.Models.Carts
+namespace Store.Core.Models.Carts
 {
-    public class CartItem 
+    public class CartItem
     {
-        public int PhoneId { get; set; }    
-        public string Model { get; set; }    
+        public Guid PhoneId { get; set; }
+        public string Model { get; set; }
         public string Image { get; set; }
 
 
