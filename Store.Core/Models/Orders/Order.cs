@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Store.Core.Enums;
 
-namespace Store.Data;
+namespace Store.Core.Models.Orders;
 
 public partial class Order
 {
@@ -15,11 +14,12 @@ public partial class Order
 
     public string? Email { get; set; }
 
-    public byte Status { get; set; }
+    public OrderStatus Status { get; set; } = OrderStatus.New;
 
     public string? Nov { get; set; }
 
     public double TotalPrice { get; set; }
 
-    public DateTime Date { get; set; }
+    public DateTime Date { get; set; } = DateTime.Now;
+    public virtual ICollection<OrderItem> Items { get; set; }
 }

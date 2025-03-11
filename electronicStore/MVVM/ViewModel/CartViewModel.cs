@@ -1,7 +1,7 @@
 ﻿using electronicStore.WPF.Core;
 using Microsoft.Extensions.DependencyInjection;
 using Store.Application.Abstractions;
-using Store.Core.Models.Carts;
+using Store.Core.Models.Orders;
 using Store.Core.Models.Phones;
 
 namespace electronicStore.WPF.MVVM.ViewModel

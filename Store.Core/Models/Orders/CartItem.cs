@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Store.Core.Models.Carts
+namespace Store.Core.Models.Orders
 {
     public class CartItem
     {

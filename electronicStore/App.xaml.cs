@@ -1,5 +1,6 @@
 ﻿using electronicStore.WPF;
 using electronicStore.WPF.MVVM.ViewModel;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Store.Application.Abstractions;
 using Store.Application.Services;
@@ -15,7 +16,7 @@ namespace electronicStore
         public App()
         {
             var _serviceCollection = new ServiceCollection();
-            _serviceCollection.AddDbContext<ShopContext>();
+            _serviceCollection.AddDbContext<ShopContext>(e => e.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=Shop;TrustServerCertificate=True;Encrypt=False;Integrated Security=True;"));
             _serviceCollection.AddSingleton<IPhonesService,PhonesService>();
 
             _serviceCollection.AddSingleton<CardDetailsViewModel>();

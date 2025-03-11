@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Application", "Store.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Data", "Store.Data\Store.Data.csproj", "{E8CB549D-0420-4100-BB75-A770CB77A832}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Core", "Store.Core\Store.Core.csproj", "{10C70C60-C634-4B2F-AEDE-F2D4569FE816}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Core", "Store.Core\Store.Core.csproj", "{10C70C60-C634-4B2F-AEDE-F2D4569FE816}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneShopApi", "PhoneShopApi\PhoneShopApi.csproj", "{887560E4-F39C-4EB0-B1EC-87F288A485C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{10C70C60-C634-4B2F-AEDE-F2D4569FE816}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10C70C60-C634-4B2F-AEDE-F2D4569FE816}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10C70C60-C634-4B2F-AEDE-F2D4569FE816}.Release|Any CPU.Build.0 = Release|Any CPU
+		{887560E4-F39C-4EB0-B1EC-87F288A485C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{887560E4-F39C-4EB0-B1EC-87F288A485C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{887560E4-F39C-4EB0-B1EC-87F288A485C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{887560E4-F39C-4EB0-B1EC-87F288A485C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
